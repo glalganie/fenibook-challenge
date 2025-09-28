@@ -1,7 +1,6 @@
 
-   ![Logo di Fenibook Challenge]<img width="1024" height="1024" alt="logo-fenibook-challenge-completo" src="https://github.com/user-attachments/assets/7a76082c-dd82-45ab-99f5-a17ec44be824" />
+<img width="400" height="400" alt="logo-fenibook-challenge-completo" src="https://github.com/user-attachments/assets/b213fdf4-6e24-4fc9-b865-8271dbcc7925" />
 
-)
 
 # Fenibook Challenge: la lettura rinasce, la tua avventura inizia.
 
