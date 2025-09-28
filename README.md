@@ -1,5 +1,6 @@
 
-   ![Logo di Fenibook Challenge]()
+   ![Logo di Fenibook Challenge](<img width="1024" height="1024" alt="logo-fenibook-completo" src="https://github.com/user-attachments/assets/3362c5f1-523d-4ff1-9154-fe98616e94fc" />
+)
 
 # Fenibook Challenge: la lettura rinasce, la tua avventura inizia.
 
@@ -51,21 +52,12 @@ L'MVP è solo l'inizio. La visione a lungo termine di Fenibook Challenge include
 
 ## 📸 Screenshots
 
+![Pagine Login e Register](https://github.com/user-attachments/assets/bdb7f24b-2f96-437d-ac62-c2c47128002b)
 
-<p align="center">
-  <img src="img/Pagine Login e Register.JPG" alt="img 1"
-       style="width: 60%; max-width: 400; border: 1px solid #ccc; margin-bottom: 20px;" />
-</p>
+![dashboard](https://github.com/user-attachments/assets/41a4d6bf-e5d8-4297-960f-cce287d7429a)
 
-<p align="center">
-  <img src="img/dashboard.JPG" alt="img 2"
-       style="width: 60%; max-width: 400; border: 1px solid #ccc; margin-bottom: 20px;" />
-</p>
+![sceglilibri](https://github.com/user-attachments/assets/81850c7f-fc7e-4e34-aea5-b14a8fe86060)
 
-<p align="center">
-  <img src="img/sceglilibri.JPG" alt="img 3"
-       style="width: 60%; max-width: 400; border: 1px solid #ccc;" />
-</p>
 
 
 
