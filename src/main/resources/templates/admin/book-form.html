@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head(pageTitle=${book.id == null ? 'Nuovo Libro' : 'Modifica Libro'})}"></head>
+<body>
+<div th:replace="~{fragments/header :: navbar}"></div>
+
+<main class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-fenibook p-4">
+                <h1 class="mb-4" th:text="${book.id == null} ? 'Aggiungi Nuovo Libro' : 'Modifica: ' + ${book.title}"></h1>
+                <hr>
+                
+                <form th:action="@{/admin/books/save}" th:object="${book}" method="post">
+                    <!-- Campo nascosto per l'ID, fondamentale per l'aggiornamento -->
+                    <input type="hidden" th:field="*{id}">
+
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Titolo</label>
+                        <input type="text" class="form-control" id="title" th:field="*{title}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="author" class="form-label">Autore</label>
+                        <input type="text" class="form-control" id="author" th:field="*{author}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Descrizione</label>
+                        <textarea class="form-control" id="description" th:field="*{description}" rows="5"></textarea>
+                    </div>
+                     <div class="mb-3">
+                        <label for="category" class="form-label">Categoria/Genere</label>
+                        <input type="text" class="form-control" id="category" th:field="*{category}" placeholder="Es. Fantascienza, Romanzo Storico...">
+                    </div>
+                    <div class="mb-3">
+                        <label for="coverImageUrl" class="form-label">URL Copertina</label>
+                        <input type="url" class="form-control" id="coverImageUrl" th:field="*{coverImageUrl}" placeholder="https://esempio.com/copertina.jpg">
+                    </div>
+
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-fenibook">Salva Libro</button>
+                        <a th:href="@{/admin/books}" class="btn btn-outline-secondary">Annulla</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+<div th:replace="~{fragments/footer :: bootstrap-js}"></div>
+</body>
+</html>

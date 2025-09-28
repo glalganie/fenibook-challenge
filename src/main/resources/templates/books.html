@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/header :: head(pageTitle='Sfoglia Libri')}"></head>
+<body>
+
+<div th:replace="~{fragments/header :: navbar}"></div>
+<main class="container my-5">
+    <h1 class="mb-4">Catalogo Libri</h1>
+    <div class="mb-4">
+            <input type="text" id="book-search-input" class="form-control" placeholder="Cerca per titolo o autore...">
+        </div>
+    <div th:if="${successMessage}" class="alert alert-success" th:text="${successMessage}"></div>
+    
+    <!-- Griglia dei Libri -->
+      <div class="row" id="book-results-container">
+        <div class="col-6 col-md-4 col-lg-3 mb-4" th:each="book : ${books}">
+            <div class="card card-fenibook h-100">
+                <a th:href="@{/books/{id}(id=${book.id})}">
+                    <img th:src="${book.coverImageUrl}" class="card-img-top book-cover" th:alt="${book.title}" 
+                         onerror="this.onerror=null; this.src='/img/default-cover.png';">
+                </a>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title book-title"><a th:href="@{/books/{id}(id=${book.id})}" class="text-decoration-none text-dark" th:text="${book.title}"></a></h5>
+                    <p class="card-text book-author" th:text="${book.author}"></p>
+                    <div class="mt-auto" sec:authorize="isAuthenticated()">
+                        <form th:action="@{/books/add-to-library/{bookId}(bookId=${book.id})}" method="post">
+                            <button type="submit" class="btn btn-fenibook btn-sm w-100">Aggiungi a "Da Leggere"</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<div th:replace="~{fragments/footer :: bootstrap-js}"></div>
+  <!-- Script per la ricerca live -->
+    <script th:src="@{/js/book-search.js}"></script>
+</body>
+</html>

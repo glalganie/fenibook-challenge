@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head(pageTitle='Gioca al Quiz')}">
+ <link rel="stylesheet" th:href="@{/css/challenges.css}">
+</head>
+<body>
+<div th:replace="~{fragments/header :: navbar}"></div>
+<main class="container my-5 text-center">
+    <h3 th:text="${quiz.book.title}">Titolo Libro</h3>
+    <h1 class="my-4" th:text="${quiz.question}">Domanda del quiz?</h1>
+    <form>
+        <div class="list-group">
+            <button class="list-group-item list-group-item-action" th:text="${quiz.optionA}"></button>
+            <button class="list-group-item list-group-item-action" th:text="${quiz.optionB}"></button>
+            <button class="list-group-item list-group-item-action" th:text="${quiz.optionC}"></button>
+            <button class="list-group-item list-group-item-action" th:text="${quiz.optionD}"></button>
+        </div>
+    </form>
+</main>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<div th:replace="~{fragments/footer :: bootstrap-js}"></div>
+
+ <!-- Aggiungi il timer solo nella pagina del quiz -->
+    <script th:if="${#httpServletRequest.requestURI.contains('/quizzes/play')}" th:src="@{/js/quiz-timer.js}"></script>
+</body>
+</html>

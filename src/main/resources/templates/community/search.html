@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<!-- <head th:replace="~{fragments/header :: head(pageTitle='Cerca Utenti')}"></head> -->
+
+<head th:replace="~{fragments/header :: head(pageTitle='Community')}">
+    <link rel="stylesheet" th:href="@{/css/community.css}">
+</head>
+
+<body>
+<div th:replace="~{fragments/header :: navbar}"></div>
+<main class="container my-5">
+    <h1 class="mb-4">Trova Nuovi Lettori</h1>
+    <form class="mb-4">
+        <input type="text" class="form-control" placeholder="Cerca per username...">
+    </form>
+    <!-- Qui andranno i risultati della ricerca -->
+</main>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<div th:replace="~{fragments/footer :: bootstrap-js}"></div>
+</body>
+</html>

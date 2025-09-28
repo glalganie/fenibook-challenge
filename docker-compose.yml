@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # Servizio per il Database MySQL
+  db:
+    image: mysql:8.0
+    container_name: fenibook-mysql-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword # Password per l'utente root di MySQL
+      MYSQL_DATABASE: fenibook_db # Crea questo database al primo avvio
+      MYSQL_USER: root # Crea questo utente
+      MYSQL_PASSWORD: tchissambou # Assegna questa password all'utente
+    ports:
+      # Mappa la porta 3306 del container alla porta 3306 della tua macchina
+      - "3306:3306"
+    volumes:
+      # Salva i dati del database in un volume Docker per renderli persistenti
+      - fenibook-db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # Servizio per l'Applicazione Fenibook
+  app:
+    # Costruisce l'immagine usando il Dockerfile presente nella stessa cartella
+    build: .
+    container_name: fenibook-app
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy # L'app parte solo quando il DB è pronto
+    ports:
+      # Mappa la porta 8080 del container alla porta 8080 della tua macchina
+      - "8080:8080"
+    environment:
+      # Sovrascrive le properties per l'ambiente di produzione
+      SPRING_PROFILES_ACTIVE: prod
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/fenibook_db?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: tchissambou
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+
+# Definizione del volume per la persistenza dei dati del DB
+volumes:
+  fenibook-db-data:

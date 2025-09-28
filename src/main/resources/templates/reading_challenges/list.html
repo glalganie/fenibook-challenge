@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head(pageTitle='Sfide')}">
+    <link rel="stylesheet" th:href="@{/css/challenges.css}">
+</head>
+<body>
+<div th:replace="~{fragments/header :: navbar}"></div>
+<main class="container my-5">
+    <h1 class="mb-4">Sfide di Lettura</h1>
+    <div class="row">
+        <!-- Esempio di una card per una sfida -->
+        <div class="col-md-4 mb-4">
+            <div class="card card-fenibook text-center h-100">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Leggi 5 Libri in un Mese</h5>
+                    <p class="card-text text-secondary">Dimostra la tua costanza e completa questa sfida per guadagnare 100 punti extra.</p>
+                    <div class="mt-auto">
+                        <a href="#" class="btn btn-fenibook">Partecipa</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Altra card -->
+        <div class="col-md-4 mb-4">
+             <div class="card card-fenibook text-center h-100">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Esploratore di Generi</h5>
+                    <p class="card-text text-secondary">Leggi almeno un libro da 3 generi diversi (Fantascienza, Giallo, Romanzo Storico).</p>
+                    <div class="mt-auto">
+                        <a href="#" class="btn btn-fenibook">Partecipa</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Altra card -->
+         <div class="col-md-4 mb-4">
+             <div class="card card-fenibook text-center h-100">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Maratona dei Classici</h5>
+                    <p class="card-text text-secondary">Leggi 3 classici della letteratura mondiale in due mesi.</p>
+                    <div class="mt-auto">
+                        <a href="#" class="btn btn-fenibook">Partecipa</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<div th:replace="~{fragments/footer :: bootstrap-js}"></div>
+
+  <!-- Aggiungi il timer solo nella pagina del quiz -->
+    <script th:if="${#httpServletRequest.requestURI.contains('/quizzes/play')}" th:src="@{/js/quiz-timer.js}"></script>
+</body>
+</html>

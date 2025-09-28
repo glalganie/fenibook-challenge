@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head(pageTitle='Community')}">
+    <link rel="stylesheet" th:href="@{/css/community.css}">
+</head>
+
+<body>
+<div th:replace="~{fragments/header :: navbar}"></div>
+<main class="container my-5">
+    <h1 class="mb-4">Gestisci le Tue Amicizie</h1>
+    <!-- Sezione Richieste in Sospeso -->
+    <div class="card card-fenibook mb-4">
+        <div class="card-header"><h4>Richieste Ricevute</h4></div>
+        <div class="list-group list-group-flush">
+            <!-- Esempio di una richiesta -->
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+                <span><strong>NuovoLettore123</strong> ti ha inviato una richiesta di amicizia.</span>
+                <div>
+                    <button class="btn btn-sm btn-success">Accetta</button>
+                    <button class="btn btn-sm btn-danger">Rifiuta</button>
+                </div>
+            </div>
+            <!-- Messaggio se non ci sono richieste -->
+            <div class="list-group-item text-secondary text-center">Nessuna richiesta di amicizia in sospeso.</div>
+        </div>
+    </div>
+    
+    <!-- Sezione Lista Amici -->
+    <div class="card card-fenibook">
+        <div class="card-header"><h4>I Tuoi Amici</h4></div>
+        <div class="list-group list-group-flush">
+            <!-- Esempio di un amico -->
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+                <span><strong>LettoreAccanito</strong></span>
+                <button class="btn btn-sm btn-outline-danger">Rimuovi</button>
+            </div>
+            <!-- Altro amico -->
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+                <span><strong>GlalganieT</strong></span>
+                <button class="btn btn-sm btn-outline-danger">Rimuovi</button>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<div th:replace="~{fragments/footer :: bootstrap-js}"></div>
+</body>
+</html>

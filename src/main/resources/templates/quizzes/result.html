@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head(pageTitle='Esito Quiz')}"></head>
+<body>
+<div th:replace="~{fragments/header :: navbar}"></div>
+<main class="container my-5 text-center">
+    <div th:if="${isCorrect}">
+        <h1 class="text-success">Risposta Corretta!</h1>
+        <p class="lead">Hai guadagnato 10 punti!</p>
+    </div>
+    <div th:unless="${isCorrect}">
+        <h1 class="text-danger">Risposta Sbagliata!</h1>
+        <p class="lead">Non hai guadagnato punti. Ritenta la prossima volta!</p>
+    </div>
+    <a th:href="@{/dashboard}" class="btn btn-fenibook mt-3">Torna alla Dashboard</a>
+</main>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<div th:replace="~{fragments/footer :: bootstrap-js}"></div>
+</body>
+</html>

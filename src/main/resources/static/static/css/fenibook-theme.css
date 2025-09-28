@@ -1,0 +1,44 @@
+/*
+ * ====================================================================
+ * FENIBOOK CHALLENGE - OFFICIAL BRAND THEME
+ * ====================================================================
+ */
+
+:root {
+    --color-primary: #D94A38;
+    --color-primary-dark: #B93E2B;
+    --color-accent: #F2B736;
+    --color-accent-dark: #d3a027;
+    --color-bg-main: #F5F5F0;
+    --color-surface: #FFFFFF;
+    --color-text-main: #2C2A29;
+    --color-text-secondary: #6c757d;
+    --color-border-light: #E0E0E0;
+    --color-link-social: #4A90E2;
+    --font-family-base: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--color-bg-main);
+    color: var(--color-text-main);
+    font-family: var(--font-family-base);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+/* Componenti Globali */
+.navbar-brand .brand-logo { height: 40px; }
+.btn-fenibook { background-color: var(--color-primary); color: white; border-color: var(--color-primary); padding: 0.5rem 1.5rem; border-radius: 0.5rem; font-weight: 600; transition: background-color 0.2s; }
+.btn-fenibook:hover { background-color: var(--color-primary-dark); border-color: var(--color-primary-dark); color: white; }
+.btn-fenibook-accent { background-color: var(--color-accent); color: var(--color-text-main); border-color: var(--color-accent); padding: 0.5rem 1.5rem; border-radius: 0.5rem; font-weight: 600; transition: background-color 0.2s; }
+.btn-fenibook-accent:hover { background-color: var(--color-accent-dark); border-color: var(--color-accent-dark); }
+.card-fenibook { border: 1px solid var(--color-border-light); border-radius: 8px; background-color: var(--color-surface); box-shadow: 0 4px 12px rgba(0,0,0,0.05); height: 100%; }
+.form-control:focus { border-color: var(--color-primary); box-shadow: 0 0 0 0.25rem rgba(217, 74, 56, 0.25); }
+.book-cover { border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 100%; aspect-ratio: 2 / 3; object-fit: cover; }
+.book-title { font-size: 0.9rem; font-weight: 600; margin-top: 0.5rem; }
+.book-author { font-size: 0.8rem; color: var(--color-text-secondary); }

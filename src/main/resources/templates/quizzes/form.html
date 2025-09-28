@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head(pageTitle='Crea un Quiz')}"></head>
+<body>
+<div th:replace="~{fragments/header :: navbar}"></div>
+<main class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-fenibook p-4">
+                <h1 class="mb-4">Crea un Nuovo Quiz</h1>
+                <p class="text-secondary">Scegli un libro e sfida un amico con una domanda a risposta multipla!</p>
+                <form>
+                    <!-- Select per scegliere il libro -->
+                    <div class="mb-3">
+                        <label for="book" class="form-label">Su quale libro vuoi creare il quiz?</label>
+                        <select class="form-select" id="book" required>
+                            <option selected disabled value="">Scegli un libro dalla tua libreria...</option>
+                            <option th:each="book : ${userBooks}" th:value="${book.id}" th:text="${book.title}"></option>
+                        </select>
+                    </div>
+                    <!-- Campo per la domanda -->
+                    <div class="mb-3">
+                        <label for="question" class="form-label">Domanda</label>
+                        <textarea class="form-control" id="question" rows="3" placeholder="Es. Chi è il vero assassino in..." required></textarea>
+                    </div>
+                    <!-- Campi per le 4 opzioni -->
+                    <div class="row">
+                        <div class="col-md-6 mb-3"><input type="text" class="form-control" placeholder="Opzione A" required></div>
+                        <div class="col-md-6 mb-3"><input type="text" class="form-control" placeholder="Opzione B" required></div>
+                        <div class="col-md-6 mb-3"><input type="text" class="form-control" placeholder="Opzione C" required></div>
+                        <div class="col-md-6 mb-3"><input type="text" class="form-control" placeholder="Opzione D" required></div>
+                    </div>
+                    <!-- Select per la risposta corretta -->
+                    <div class="mb-3">
+                        <label for="correctAnswer" class="form-label">Risposta Corretta</label>
+                        <select class="form-select" id="correctAnswer" required>
+                            <option value="A">Opzione A</option>
+                            <option value="B">Opzione B</option>
+                            <option value="C">Opzione C</option>
+                            <option value="D">Opzione D</option>
+                        </select>
+                    </div>
+                    <!-- Select per sfidare un amico -->
+                    <div class="mb-3">
+                        <label for="friend" class="form-label">Chi vuoi sfidare? (Opzionale)</label>
+                        <select class="form-select" id="friend">
+                            <option selected value="">Nessuno, la rendo pubblica</option>
+                            <option th:each="friend : ${userFriends}" th:value="${friend.id}" th:text="${friend.username}"></option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-fenibook mt-3">Lancia la Sfida!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<div th:replace="~{fragments/footer :: bootstrap-js}"></div>
+</body>
+</html>

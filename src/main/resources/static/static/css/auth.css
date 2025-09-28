@@ -1,0 +1,6 @@
+/* Stili per le pagine di Login e Registrazione */
+
+.auth-card {
+    max-width: 450px;
+    margin: 3rem auto;
+}

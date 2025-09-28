@@ -1,0 +1,16 @@
+/* Stili per la Dashboard Utente */
+
+.dashboard-card {
+    padding: 1.5rem;
+}
+
+.points-display {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+.chart-container {
+    position: relative;
+    height: 300px; /* Altezza fissa per il canvas del grafico */
+}
