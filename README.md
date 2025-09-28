@@ -104,21 +104,18 @@ Il modo più semplice per avviare il progetto.
 ./mvnw spring-boot:run
  
 App: http://localhost:8080
-H2 Console: http://localhost:8080/h2-console (JDBC URL: jdbc:h2:mem:fenibook_db)
+H2 Console: http://localhost:8080/h2-console
+
+ (JDBC URL: jdbc:h2:mem:fenibook_db)
 Avvio in Ambiente di Produzione-Simile (con Docker)
 Questo avvia l'applicazione e un database MySQL in container separati.
-code Bash
-downloadcontent_copy
-expand_less
+
 # Assicurati di avere Docker e Docker Compose installati
 docker-compose up --build
  
 App: http://localhost:8080
 MySQL: accessibile su localhost:3306
-Build del Progetto
-code Bash
-downloadcontent_copy
-expand_less
+
 # Crea il file JAR eseguibile nella cartella /target
 ./mvnw clean package
 
